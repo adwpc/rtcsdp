@@ -26,7 +26,7 @@ func TestDecode(t *testing.T) {
 			enc := sdp.Encode()
 			fmt.Print(enc)
 			if err := ioutil.WriteFile(filepath.Join("enc/"+fi.Name()), []byte(enc), 0666); err != nil {
-				log.Fatal(err)
+				log.Println(err)
 			}
 			fmt.Println("=============================================================")
 		}
