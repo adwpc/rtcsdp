@@ -167,7 +167,7 @@ func main() {
 	- video
 	- data
 	
-- [x] fire_av.sdp
+- [x] firefox_av.sdp
 	- audio
 	- video
 - [x] janus_av.sdp
