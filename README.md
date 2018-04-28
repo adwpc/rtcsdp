@@ -149,15 +149,16 @@ a=sctpmap:5000 webrtc-datachannel 1024
 `
 
 func main() {
-	var sdp sdp.SDP
 	log.Println("==================decode======================")
-	if err := sdp.Decode(chromeOffer); err != nil {
+
+	if sdp, err := sdp.NewSDP(chromeOffer); err == nil {
+		log.Println("==================encode======================")
+		log.Println(sdp.Encode())
+	} else {
 		log.Println(err.Error())
 	}
-	log.Println("==================encode======================")
-	log.Println(sdp.Encode())
-
 }
+
 ```
 
 ### tested sdp

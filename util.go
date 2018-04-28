@@ -25,7 +25,7 @@ func SplitLines(s *string) *[]Line {
 func UInt(s string) uint {
 	n, err := strconv.ParseUint(s, 10, 64)
 	if err != nil {
-		log.Println(err.Error())
+		log.Panicln(err)
 	}
 	return uint(n)
 }

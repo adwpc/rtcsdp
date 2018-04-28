@@ -31,13 +31,19 @@ type SDP struct {
 	Medias []media
 }
 
-func (sdp *SDP) Decode(sdpstr string) error {
-	if len(sdpstr) == 0 {
+func NewSDP(s string) (*SDP, error) {
+	var sdp SDP
+	err := sdp.Decode(s)
+	return &sdp, err
+}
+
+func (sdp *SDP) Decode(s string) error {
+	if len(s) == 0 {
 		return errors.New("the sdp string is empty!")
 	}
 
 	//split sdp into three part: session audio video
-	parts := strings.Split(sdpstr, "m=")
+	parts := strings.Split(s, "m=")
 	var err string
 	for i, part := range parts {
 		if i == 0 {
